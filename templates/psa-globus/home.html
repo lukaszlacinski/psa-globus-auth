@@ -1,0 +1,31 @@
+{% extends 'psa-globus/base.html' %}
+
+{% block main %}
+ <div>
+ <h1>Third-party authentication demo for Globus Auth</h1>
+
+ <p>
+   <ul>
+   {% if user and not user.is_anonymous %}
+     <li>
+       <a>Hello {{ user.get_full_name|default:user.username }}!</a>
+       <br>&nbsp; Username: {{ user.username }}
+       <br>&nbsp; Email: {{ user.email }}
+       <br>&nbsp; First name: {{ user.first_name }}
+       <br>&nbsp; Last name: {{ user.last_name }}
+       <br>&nbsp; Date joined: {{ user.date_joined }}
+       <br>&nbsp; Last login: {{ user.last_login }}
+     </li>
+     <br>
+     <li>
+       <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
+     </li>
+   {% else %}
+     <li>
+       <a href="{% url 'social:begin' 'globus' %}?next={{ request.path }}">Login with Globus</a>
+     </li>
+   {% endif %}
+   </ul>
+ </p>
+ </div>
+{% endblock %}
