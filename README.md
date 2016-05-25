@@ -14,7 +14,7 @@ All clients need to register with Globus Auth and will receive a client id and s
 
 
 
-  This is displayed to the user on the consent screen. “<Client name> would like to” with a list of operations based on the scopes the client is asking.
+  This is displayed to the user on the consent screen. “&lt;Client name&gt; would like to” with a list of operations based on the scopes the client is asking.
 
 - Scopes the client needs
 
@@ -44,7 +44,7 @@ All clients need to register with Globus Auth and will receive a client id and s
 
 
 
-  Python-social-auth uses Redirect URIs "https://<your_hostname>/complete/<backend>/". For the Globus Auth backend, the Redirect URI is "https://<your_hostname>/complete/globus/".
+  Python-social-auth uses Redirect URIs `https://<your_hostname>/complete/<backend>/`. For the Globus Auth backend, the Redirect URI is `https://<your_hostname>/complete/globus/`.
 
 - GPG public key
 
@@ -136,4 +136,4 @@ WSGIDaemonProcess psa-globus python-path=<your_base_dir>/psa-globus-auth:<your_b
 
 
 
-Restart Apache and open https://<your_hostname>/ in a web browser. You will likely need to change owneship of the psa-globus-auth' directory to www-data (on Ubuntu), so Apache can run the code and create the SQLite3 database.
+Restart Apache and open `https://<your_hostname>/` in a web browser. You will likely need to change ownership of the 'psa-globus-auth' directory to www-data (on Ubuntu), so Apache can run the web app and create the SQLite3 database.
