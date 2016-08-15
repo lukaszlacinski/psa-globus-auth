@@ -1,6 +1,6 @@
 """
 Globus Auth backend, docs at:
-    https://docs.google.com/document/d/1Uidv5yhJysez7yBkZAzUHiGtD2RTzTr2VndKArGLOic
+    https://docs.globus.org/api/auth
 """
 
 from social.backends.oauth import BaseOAuth2
@@ -14,10 +14,12 @@ class GlobusOAuth2(BaseOAuth2):
     AUTHORIZATION_URL = 'https://auth.globus.org/v2/oauth2/authorize'
     ACCESS_TOKEN_URL = 'https://auth.globus.org/v2/oauth2/token'
     DEFAULT_SCOPE = ['urn:globus:auth:scope:transfer.api.globus.org:all']
-    STATE_PARAMETER = False
     REDIRECT_STATE = False
     ACCESS_TOKEN_METHOD = 'POST'
     EXTRA_DATA = [
+        ('access_token', 'access_token', True),
+        ('expires_in', 'expires_in', True),
+        ('id_token', 'id_token', True),
         ('refresh_token', 'refresh_token', True)
     ]
 

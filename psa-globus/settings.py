@@ -85,6 +85,9 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_GLOBUS_KEY = '<your_Globus_Auth_Client_ID>'
 SOCIAL_AUTH_GLOBUS_SECRET = '<your_Globus_Auth_Client_Secret>'
 SOCIAL_AUTH_SANITIZE_REDIRECTS = False
+SOCIAL_AUTH_GLOBUS_AUTH_EXTRA_ARGUMENTS = {
+    'access_type': 'offline',
+}
 #SOCIAL_AUTH_TRAILING_SLASH = False
 
 # Database
