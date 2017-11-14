@@ -38,7 +38,7 @@ WSGIDaemonProcess globusapp user=<your_username> python-path=<your_base_dir>/psa
         </Files>
     </Directory>
 ```
-Restart Apache and open `https://example.com/<prefix>` in a web browser. You you do not own `example.com` domain you may need to add:
+Restart Apache and open `https://example.com/<prefix>` in a web browser. If you do not own `example.com` domain, you may need to add:
 ```
 127.0.0.1 example.com
 ```
