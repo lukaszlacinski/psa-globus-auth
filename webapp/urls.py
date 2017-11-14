@@ -13,14 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, patterns, include
+from django.conf.urls import url, include
 from django.contrib import admin
-admin.autodiscover()
+from . import views
 
 
 urlpatterns = [
-    url(r'^$', 'psa-globus.views.home', name='home'),
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home, name='home'),
     url(r'', include('django.contrib.auth.urls', namespace='auth')),
-    url(r'', include('social.apps.django_app.urls', namespace='social')),
+    url(r'', include('social_django.urls', namespace='social')),
 ]

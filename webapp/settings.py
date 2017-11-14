@@ -25,7 +25,7 @@ SECRET_KEY = '6)oe%kzsq*cghfx33!vdy6at&s(kpzzr%tpud+$x$au8x-48x^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['example.com']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social.apps.django_app.default',
+    'social_django',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -51,12 +51,12 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'psa-globus.urls'
+ROOT_URLCONF = 'webapp.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + '/templates/'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': DEBUG,
@@ -65,20 +65,17 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social.apps.django_app.context_processors.backends',
-                'social.apps.django_app.context_processors.login_redirect',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'psa-globus.wsgi.application'
+WSGI_APPLICATION = 'webapp.wsgi.application'
 
 AUTHENTICATION_BACKENDS = [
-   'social.backends.facebook.FacebookOAuth2',
-   'social.backends.google.GoogleOAuth2',
-   'social.backends.twitter.TwitterOAuth',
-   'psa-globus.backends.globus.GlobusOAuth2',
+   'webapp.backends.globus.GlobusOAuth2',
    'django.contrib.auth.backends.ModelBackend',
 ]
 

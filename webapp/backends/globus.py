@@ -3,9 +3,9 @@ Globus Auth backend, docs at:
     https://docs.globus.org/api/auth
 """
 
-from social.backends.oauth import BaseOAuth2
-from social.p3 import urlencode, unquote
-
+from social_core.backends.oauth import BaseOAuth2
+from social_core.exceptions import AuthTokenError
+from six.moves.urllib_parse import urlencode, unquote
 from jwt import DecodeError, ExpiredSignature, decode as jwt_decode
 
 
@@ -13,26 +13,21 @@ class GlobusOAuth2(BaseOAuth2):
     name = 'globus'
     AUTHORIZATION_URL = 'https://auth.globus.org/v2/oauth2/authorize'
     ACCESS_TOKEN_URL = 'https://auth.globus.org/v2/oauth2/token'
-    DEFAULT_SCOPE = ['urn:globus:auth:scope:transfer.api.globus.org:all']
+    DEFAULT_SCOPE = [
+        'openid',
+        'email',
+        'profile',
+        'urn:globus:auth:scope:transfer.api.globus.org:all'
+    ]
     REDIRECT_STATE = False
     ACCESS_TOKEN_METHOD = 'POST'
     EXTRA_DATA = [
         ('access_token', 'access_token', True),
         ('expires_in', 'expires_in', True),
+        ('refresh_token', 'refresh_token', True),
         ('id_token', 'id_token', True),
-        ('refresh_token', 'refresh_token', True)
+        ('other_tokens', 'other_tokens', True),
     ]
-
-
-    # PSA does not encode redirect_uri if REDIRECT_STATE=False
-    def auth_url(self):
-        """Return redirect url"""
-        state = self.get_or_create_state()
-        params = self.auth_params(state)
-        params.update(self.get_scope_argument())
-        params.update(self.auth_extra_arguments())
-        params = urlencode(params)
-        return '{0}?{1}'.format(self.authorization_url(), params)
 
 
     # extract user info from id_token (OpenID Connect)
