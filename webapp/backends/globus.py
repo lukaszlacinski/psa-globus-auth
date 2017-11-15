@@ -17,7 +17,6 @@ class GlobusOAuth2(BaseOAuth2):
         'openid',
         'email',
         'profile',
-        'urn:globus:auth:scope:transfer.api.globus.org:all'
     ]
     REDIRECT_STATE = False
     ACCESS_TOKEN_METHOD = 'POST'

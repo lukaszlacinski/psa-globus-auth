@@ -82,10 +82,16 @@ AUTHENTICATION_BACKENDS = [
 SOCIAL_AUTH_GLOBUS_KEY = '<your_Globus_Auth_Client_ID>'
 SOCIAL_AUTH_GLOBUS_SECRET = '<your_Globus_Auth_Client_Secret>'
 SOCIAL_AUTH_SANITIZE_REDIRECTS = False
+# Access type needed to get a refresh token
 SOCIAL_AUTH_GLOBUS_AUTH_EXTRA_ARGUMENTS = {
     'access_type': 'offline',
 }
-#SOCIAL_AUTH_TRAILING_SLASH = False
+# Scopes required to get user id, email, name, etc are specified by default
+# If your web app needs to request access token for other scopes, you can
+# specified additional scopes here.
+#SOCIAL_AUTH_GLOBUS_SCOPE = [
+#    'urn:globus:auth:scope:transfer.api.globus.org:all'
+#]
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
