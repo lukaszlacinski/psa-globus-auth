@@ -87,8 +87,8 @@ SOCIAL_AUTH_GLOBUS_AUTH_EXTRA_ARGUMENTS = {
     'access_type': 'offline',
 }
 # Scopes required to get user id, email, name, etc are specified by default
-# If your web app needs to request access token for other scopes, you can
-# specified additional scopes here.
+# in backends/globus.py. If your web app needs to request access tokens for
+# other scopes, you can specify additional scopes here.
 #SOCIAL_AUTH_GLOBUS_SCOPE = [
 #    'urn:globus:auth:scope:transfer.api.globus.org:all'
 #]
