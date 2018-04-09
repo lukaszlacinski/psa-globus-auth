@@ -75,13 +75,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'webapp.wsgi.application'
 
 AUTHENTICATION_BACKENDS = [
-   'webapp.backends.globus.GlobusOAuth2',
+   'webapp.globus.GlobusOIDC',
    'django.contrib.auth.backends.ModelBackend',
 ]
 
 SOCIAL_AUTH_GLOBUS_KEY = '<your_Globus_Auth_Client_ID>'
 SOCIAL_AUTH_GLOBUS_SECRET = '<your_Globus_Auth_Client_Secret>'
-SOCIAL_AUTH_SANITIZE_REDIRECTS = False
 # Access type needed to get a refresh token
 SOCIAL_AUTH_GLOBUS_AUTH_EXTRA_ARGUMENTS = {
     'access_type': 'offline',

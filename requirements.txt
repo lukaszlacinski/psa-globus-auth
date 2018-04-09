@@ -1,3 +1,4 @@
 requests==2.11.1
 django
 social-auth-app-django
+pyjwkest
