@@ -4,11 +4,11 @@ Simple Django web application with Globus Auth backend for Python Social Auth. T
 
 ## Install psa-globus-auth
 
-Create Python 2.7 virtual environment
+Create Python 3.x virtual environment
 ```
 $ python --version
-Python 2.7.10
-$ virtualenv venv
+Python 3.7.15
+$ python -mvenv  venv
 $ . venv/bin/activate
 ```
 Download and install psa-globus-auth with all required Python packages (Django, Python Social Auth, etc.)
@@ -29,7 +29,7 @@ All OAuth2 clients need to register with Globus Auth to get a client id and secr
 
 For example, on Ubuntu, add the following lines to /etc/apache2/sites-available/default-ssl.conf in `<VirtualHost _default_:443>`
 ```
-    WSGIDaemonProcess globusapp user=<your_username> python-path=<your_base_dir>/psa-globus-auth:<your_base_dir>/venv/lib/python2.7/site-packages
+    WSGIDaemonProcess globusapp user=<your_username> python-path=<your_base_dir>/psa-globus-auth python-home=<your_base_dir>/venv
     WSGIScriptAlias /<prefix> <your_base_dir>/psa-globus-auth/webapp/wsgi.py process-group=globusapp
     <Directory <your_base_dir>/psa-globus-auth/webapp>
         <Files wsgi.py>
