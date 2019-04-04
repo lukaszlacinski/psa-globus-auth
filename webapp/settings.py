@@ -88,8 +88,7 @@ SOCIAL_AUTH_GLOBUS_AUTH_EXTRA_ARGUMENTS = {
     'access_type': 'offline',
 }
 SOCIAL_AUTH_GLOBUS_SCOPE = [
-    'urn:globus:auth:scope:nexus.api.globus.org:groups',
-    'urn:globus:auth:scope:search.api.globus.org:search',
+    #'urn:globus:auth:scope:search.api.globus.org:search',
     # Add the group scope to be able to verify if a user is a member of a Globus
     # group. To use the group scope, your Globus Auth Client ID has to be
     # whitelisted. Please contact support@globus.org to whitelist your Client ID.
