@@ -86,8 +86,6 @@ SOCIAL_AUTH_GLOBUS_KEY = ''
 SOCIAL_AUTH_GLOBUS_SECRET = ''
 SOCIAL_AUTH_GLOBUS_AUTH_EXTRA_ARGUMENTS = {
     'access_type': 'offline',
-    #'session_message': 'test message',
-    #'session_required_identities': '5994ef38-3276-4db0-b2d5-808763ec8781'
 }
 SOCIAL_AUTH_GLOBUS_SCOPE = [
     'urn:globus:auth:scope:nexus.api.globus.org:groups',
@@ -104,7 +102,7 @@ SOCIAL_AUTH_GLOBUS_SCOPE = [
 # Set to a UUID of a Globus group if you want to restrict access to the portal
 # to members of the Globus group. You will also have to add the group scope
 # urn:globus:auth:scope:nexus.api.globus.org:groups to SOCIAL_AUTH_GLOBUS_SCOPE.
-# GLOBUS_AUTH_GLOBUS_ALLOWED_GROUP = '<Globus_group_UUID>'
+# SOCIAL_AUTH_GLOBUS_ALLOWED_GROUP = '<Globus_group_UUID>'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
